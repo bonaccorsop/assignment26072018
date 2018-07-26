@@ -3,7 +3,6 @@ vendor
 bin/*
 phpunit
 
-
 # Dotenv
 .env
 .env.*
