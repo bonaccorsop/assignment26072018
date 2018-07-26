@@ -1,0 +1,14 @@
+{
+  "name": "@mensa/assignment26072018",
+  "description": "Assignment 26-07-2018",
+  "author": "Pietro Bonaccorso <bonaccorso.p@gmail.com>",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node reverse_binary.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "jest": "^23.3.0"
+  }
+}
