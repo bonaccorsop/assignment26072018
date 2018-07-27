@@ -2,6 +2,7 @@ node_modules
 vendor
 bin/*
 phpunit
+*.pyc
 
 # Dotenv
 .env
