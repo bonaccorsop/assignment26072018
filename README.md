@@ -21,6 +21,13 @@ This Dockerfile will build the assignment image and will do the follow tasks
   - Resolve code dependecies for each language (if needed)
   - Run Unit Tests for each language
 
+#### Notes
+
+Suddenly, I didn't write Unit Tests for Python.
+I want to study the Python Unit Tests workbench soon!
+I preferred to mantain focus on the functionality without being in late :)
+
+
 That's all folks!
 
 Enjoy :)

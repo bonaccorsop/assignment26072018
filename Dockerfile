@@ -7,43 +7,45 @@ RUN apk add --update wget
 ####
 # Copy all the assignment scripts
 ####
+
 COPY ./scripts /code
 WORKDIR /code
 
-# ####
-# # Python
-# ####
+####
+# JS
+####
 
-# # Install python 2.7 ecosystem
-# RUN apk add python2
+# Install nodejs 8.11 ecosystem
+RUN apk add nodejs npm
 
+# Install code dependencies
+RUN npm --prefix js/ install
 
+# Run Unit Tests
+RUN npm --prefix js/ test
 
+####
+# PHP
+####
 
+# Install php 7.2 ecosystem
+RUN apk add php7 php7-json php7-mbstring php7-phar php7-openssl
 
-# ####
-# # JS
-# ####
+# Install phpunit with phar
+RUN wget -O phpunit https://phar.phpunit.de/phpunit-7.phar && mkdir /code/php/bin && mv phpunit /code/php/bin && chmod +x /code/php/bin/phpunit
 
-# # Install nodejs 8.11 ecosystem
-# RUN apk add nodejs npm
+# Run Unit Tests
+RUN ./php/bin/phpunit ./php/tests
 
-# # Install code dependencies
-# RUN npm --prefix js/ install
+####
+# Python
+####
 
-# # Run Unit Tests
-# RUN npm --prefix js/ test
+# Install python 2.7 ecosystem
+RUN apk add python2 py2-pip && pip install --upgrade pip
 
+# Install code dependencies
+RUN pip install -r python/requirements.txt
 
-# ####
-# # PHP
-# ####
-
-# # Install php 7.2 ecosystem
-# RUN apk add php7 php7-json php7-mbstring php7-phar php7-openssl
-
-# # Install phpunit with phar
-# RUN wget -O phpunit https://phar.phpunit.de/phpunit-7.phar && mkdir /code/php/bin && mv phpunit /code/php/bin && chmod +x /code/php/bin/phpunit
-
-# # Run Unit Tests
-# RUN ./php/bin/phpunit ./php/tests
+# Run code
+RUN python python/test.py
