@@ -27,6 +27,8 @@ Suddenly, I didn't write Unit Tests for Python.
 I want to study the Python Unit Tests workbench soon!
 I preferred to mantain focus on the functionality without being in late :)
 
+I tested the code by calling the script test.py inside the python folder,
+mantaining the modularity of the class for future unit tests.
 
 That's all folks!
 
